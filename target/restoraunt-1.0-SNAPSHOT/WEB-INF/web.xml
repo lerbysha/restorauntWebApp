@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+
+    <listener>
+        <listener-class>ru.kpfu.itis.listener.UserListener</listener-class>
+    </listener>
+
+
+
+
+    <filter>
+        <filter-name>indentification-filter</filter-name>
+        <filter-class>ru.kpfu.itis.filter.IdentificationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>indentification-filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--<filter>
+        <filter-name>log-access</filter-name>
+        <filter-class>ru.kpfu.itis.filter.LogAccessFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>log-access</filter-name>
+        <url-pattern>/signIn</url-pattern>
+        <url-pattern>/signUp</url-pattern>
+    </filter-mapping>-->
+
+    <filter>
+        <filter-name>sign-up-form-saver</filter-name>
+        <filter-class>ru.kpfu.itis.filter.SignUpFormSaverFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>sign-up-form-saver</filter-name>
+        <url-pattern>/signUp</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>sign-in-form-saver</filter-name>
+        <filter-class>ru.kpfu.itis.filter.SignInFormSaverFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>sign-in-form-saver</filter-name>
+        <url-pattern>/signIn</url-pattern>
+    </filter-mapping>
+
+
+
+
+    <servlet>
+        <servlet-name>sign-up</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlet.SignUpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sign-up</servlet-name>
+        <url-pattern>/signUp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>sign-in</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlet.SignInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sign-in</servlet-name>
+        <url-pattern>/signIn</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>profile</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlet.ProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>menu</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlet.MenuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>menu</servlet-name>
+        <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>main-page</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlet.MainPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>main-page</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+</web-app>
